@@ -31,11 +31,13 @@ const Question = ({
                 "cursor-pointer"
             )}
         >
-            <div className="flex items-center justify-between transition">
-                <h5 className="text-xl font-semibold">{question}</h5>
+            <div className="flex items-center justify-between transition gap-4">
+                <h5 className="text-base sm:text-lg md:text-xl font-semibold pr-2">
+                    {question}
+                </h5>
                 <span
                     className={cn(
-                        "text-2xl transition-transform duration-200",
+                        "text-xl sm:text-2xl transition-transform duration-200 flex-shrink-0",
                         isOpen ? "rotate-180" : ""
                     )}
                     aria-hidden="true"
@@ -46,7 +48,7 @@ const Question = ({
             <div
                 className={cn(
                     isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-                    "overflow-hidden transition-all duration-300 text-[#13171B]/70"
+                    "overflow-hidden transition-all duration-300 text-[#13171B]/70 text-sm sm:text-base"
                 )}
             >
                 {answer}

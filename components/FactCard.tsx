@@ -22,13 +22,13 @@ const FactCard = ({
             role="article"
             aria-label={title}
         >
-            <div className="bg-[#13171B] h-full flex flex-col gap-4 items-center justify-center rounded p-4 relative overflow-hidden">
+            <div className="bg-[#13171B] h-full flex flex-col gap-3 sm:gap-4 items-center justify-center rounded p-3 sm:p-4 relative overflow-hidden">
                 <div className="size-32  bg-[#285580]/50 top-0 right-0 z-10 -translate-y-1/2 translate-x-1/2 absolute rounded-full blur-2xl" />
 
-                <div className="z-20 flex flex-col gap-2">
-                    {icon}
-                    <p className="font-bold">{title}</p>
-                    <p>{description}</p>
+                <div className="z-20 flex flex-col gap-2 text-center">
+                    <div className="flex justify-center">{icon}</div>
+                    <p className="font-bold text-sm sm:text-base">{title}</p>
+                    <p className="text-xs sm:text-sm">{description}</p>
                 </div>
 
                 <div className="size-32 bg-[#285580]/50 bottom-0 left-0  z-10 translate-y-1/2 -translate-x-1/2 absolute rounded-full blur-2xl" />

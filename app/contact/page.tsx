@@ -9,8 +9,10 @@ import {
     PhoneIcon,
     EnvelopeIcon,
 } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
+import Image from "next/image";
 
 function ContactForm() {
     const searchParams = useSearchParams();
@@ -83,19 +85,22 @@ function ContactForm() {
 
     return (
         <>
-            <HighlightSection className="h-auto py-20" aria-label="contact">
-                <h1 className="text-5xl text-center z-10 font-bold">
+            <HighlightSection
+                className="h-auto py-12 sm:py-16 lg:py-20 px-4 sm:px-6"
+                aria-label="contact"
+            >
+                <h1 className="text-3xl sm:text-4xl md:text-5xl text-center z-10 font-bold px-4">
                     Vamos Conversar
                 </h1>
 
-                <p className="text-center lg:w-xl z-10">
+                <p className="text-center max-w-xl mx-auto z-10 text-sm sm:text-base px-4">
                     Preencha o formulário abaixo e um de nossos especialistas
                     entrará em contato em breve.
                 </p>
             </HighlightSection>
 
-            <section className="py-8 px-10 max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <section className="py-8 px-4 sm:px-6 lg:px-10 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
                     <div className="flex flex-col gap-3 items-center text-center">
                         <div className="size-12 bg-[#1F8FFF]/10 rounded-full flex items-center justify-center">
                             <PhoneIcon
@@ -138,7 +143,7 @@ function ContactForm() {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="bg-white rounded-xl p-8 shadow-sm space-y-6"
+                    className="bg-white rounded-xl p-4 sm:p-6 lg:p-8 shadow-sm space-y-4 sm:space-y-6"
                 >
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
@@ -352,6 +357,108 @@ export default function ContactPage() {
                     <ContactForm />
                 </Suspense>
             </main>
+
+            <footer className="py-8 px-4 sm:px-6 lg:px-10 flex flex-col gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                    <div className="flex flex-col gap-1">
+                        <div className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black">
+                            <Image
+                                src="https://assets.aceternity.com/logo-dark.png"
+                                alt="logo"
+                                width={30}
+                                height={30}
+                            />
+                            <span className="text-xl sm:text-2xl font-bold">
+                                Playsoft
+                            </span>
+                        </div>
+
+                        <div>
+                            <p className="text-sm sm:text-base">
+                                contato@playsoft.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <h6 className="font-bold text-sm sm:text-base">
+                            Recursos
+                        </h6>
+                        <ul className="space-y-1">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-sm sm:text-base hover:text-[#1F8FFF] transition-colors"
+                                >
+                                    Central de Ajuda
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-sm sm:text-base hover:text-[#1F8FFF] transition-colors"
+                                >
+                                    FAQ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <h6 className="font-bold text-sm sm:text-base">
+                            Legal
+                        </h6>
+                        <ul className="space-y-1">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-sm sm:text-base hover:text-[#1F8FFF] transition-colors"
+                                >
+                                    Política de Privacidade
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-sm sm:text-base hover:text-[#1F8FFF] transition-colors"
+                                >
+                                    Termos de Uso
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <h6 className="font-bold text-sm sm:text-base">
+                            Contato
+                        </h6>
+                        <ul className="space-y-1">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-sm sm:text-base hover:text-[#1F8FFF] transition-colors"
+                                >
+                                    Suporte
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-[#13171B]/20">
+                    <p className="text-sm sm:text-base text-center sm:text-left">
+                        © 2025 Playfiver. Todos os direitos reservados
+                    </p>
+                    <Link
+                        href="/contact"
+                        aria-label="Falar com um especialista"
+                        className="w-full sm:w-auto"
+                    >
+                        <Button className="w-full sm:w-auto">
+                            Falar com um especialista
+                        </Button>
+                    </Link>
+                </div>
+            </footer>
         </div>
     );
 }
